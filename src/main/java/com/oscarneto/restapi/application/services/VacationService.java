@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface VacationService {
     List<Vacation> findAll();
+
+    Vacation findById(String id);
 }

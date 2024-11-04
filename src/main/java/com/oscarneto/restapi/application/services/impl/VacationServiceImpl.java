@@ -1,6 +1,7 @@
 package com.oscarneto.restapi.application.services.impl;
 
 import com.oscarneto.restapi.application.services.VacationService;
+import com.oscarneto.restapi.common.exceptions.EntityNotFoundException;
 import com.oscarneto.restapi.domain.entities.Vacation;
 import com.oscarneto.restapi.domain.repositories.VacationRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,5 +18,10 @@ public class VacationServiceImpl implements VacationService {
     @Override
     public List<Vacation> findAll() {
         return repository.findAll();
+    }
+
+    @Override
+    public Vacation findById(String id) {
+        return repository.findById(id).orElseThrow(() -> new EntityNotFoundException(Vacation.class));
     }
 }
