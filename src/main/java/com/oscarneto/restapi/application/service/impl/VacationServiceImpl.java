@@ -24,4 +24,9 @@ public class VacationServiceImpl implements VacationService {
     public Vacation findById(String id) {
         return repository.findById(id).orElseThrow(() -> new EntityNotFoundException(Vacation.class));
     }
+
+    @Override
+    public Vacation create(Vacation vacation) {
+        return repository.save(vacation);
+    }
 }

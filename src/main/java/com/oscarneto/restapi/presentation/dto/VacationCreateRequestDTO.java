@@ -14,7 +14,7 @@ import java.util.List;
 @Setter
 public class VacationCreateRequestDTO {
 
-    @NotNull
+    @NotEmpty
     private String name;
 
     @NotNull
@@ -31,13 +31,13 @@ public class VacationCreateRequestDTO {
     @Max(31)
     private Integer numberOfNights;
 
-    @NotNull
-    @FutureOrPresent
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Double pricePP;
 
     private OfferCreateRequestDTO offer;
 
+    @NotNull
+    @FutureOrPresent
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date validTill;
 
     @NotNull

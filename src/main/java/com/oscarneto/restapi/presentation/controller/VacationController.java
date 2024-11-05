@@ -3,11 +3,11 @@ package com.oscarneto.restapi.presentation.controller;
 import com.oscarneto.restapi.application.service.VacationService;
 import com.oscarneto.restapi.common.utils.Constants;
 import com.oscarneto.restapi.domain.entity.Vacation;
+import com.oscarneto.restapi.presentation.dto.VacationCreateRequestDTO;
+import com.oscarneto.restapi.presentation.mapper.VacationMapper;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,6 +17,7 @@ import java.util.List;
 public class VacationController {
 
     private final VacationService service;
+    private final VacationMapper mapper;
 
     @GetMapping
     public List<Vacation> getAll() {
@@ -26,5 +27,10 @@ public class VacationController {
     @GetMapping("/{id}")
     public Vacation getById(@PathVariable String id) {
         return service.findById(id);
+    }
+
+    @PostMapping
+    public Vacation create(@RequestBody @Valid VacationCreateRequestDTO vacation) {
+        return service.create(mapper.toEntity(vacation));
     }
 }
