@@ -1,17 +1,14 @@
-package com.oscarneto.restapi.domain.entities;
+package com.oscarneto.restapi.domain.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-
 @NoArgsConstructor
 @Getter
 @Setter
-public class Offer {
+public class Include {
 
-    private Double discount;
+    private String what;
     private String description;
-    private Date expires;
 }

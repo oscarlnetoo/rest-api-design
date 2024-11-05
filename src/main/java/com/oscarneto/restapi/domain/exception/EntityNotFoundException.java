@@ -1,4 +1,4 @@
-package com.oscarneto.restapi.common.exceptions;
+package com.oscarneto.restapi.domain.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

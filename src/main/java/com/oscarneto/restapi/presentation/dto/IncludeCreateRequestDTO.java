@@ -1,4 +1,4 @@
-package com.oscarneto.restapi.presentation.dtos;
+package com.oscarneto.restapi.presentation.dto;
 
 import jakarta.validation.constraints.Pattern;
 import lombok.Getter;

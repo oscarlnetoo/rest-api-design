@@ -1,8 +1,8 @@
-package com.oscarneto.restapi.presentation.controllers;
+package com.oscarneto.restapi.presentation.controller;
 
-import com.oscarneto.restapi.application.services.VacationService;
+import com.oscarneto.restapi.application.service.VacationService;
 import com.oscarneto.restapi.common.utils.Constants;
-import com.oscarneto.restapi.domain.entities.Vacation;
+import com.oscarneto.restapi.domain.entity.Vacation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

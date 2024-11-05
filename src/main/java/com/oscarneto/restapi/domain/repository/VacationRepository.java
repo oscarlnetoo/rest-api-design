@@ -1,6 +1,6 @@
-package com.oscarneto.restapi.domain.repositories;
+package com.oscarneto.restapi.domain.repository;
 
-import com.oscarneto.restapi.domain.entities.Vacation;
+import com.oscarneto.restapi.domain.entity.Vacation;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

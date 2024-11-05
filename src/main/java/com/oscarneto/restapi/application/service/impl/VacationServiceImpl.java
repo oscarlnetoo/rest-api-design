@@ -1,9 +1,9 @@
-package com.oscarneto.restapi.application.services.impl;
+package com.oscarneto.restapi.application.service.impl;
 
-import com.oscarneto.restapi.application.services.VacationService;
-import com.oscarneto.restapi.common.exceptions.EntityNotFoundException;
-import com.oscarneto.restapi.domain.entities.Vacation;
-import com.oscarneto.restapi.domain.repositories.VacationRepository;
+import com.oscarneto.restapi.application.service.VacationService;
+import com.oscarneto.restapi.domain.exception.EntityNotFoundException;
+import com.oscarneto.restapi.domain.entity.Vacation;
+import com.oscarneto.restapi.domain.repository.VacationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

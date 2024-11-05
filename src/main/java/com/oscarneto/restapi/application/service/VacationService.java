@@ -1,6 +1,6 @@
-package com.oscarneto.restapi.application.services;
+package com.oscarneto.restapi.application.service;
 
-import com.oscarneto.restapi.domain.entities.Vacation;
+import com.oscarneto.restapi.domain.entity.Vacation;
 
 import java.util.List;
 

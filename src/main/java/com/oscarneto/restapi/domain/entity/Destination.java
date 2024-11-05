@@ -1,4 +1,4 @@
-package com.oscarneto.restapi.domain.entities;
+package com.oscarneto.restapi.domain.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
