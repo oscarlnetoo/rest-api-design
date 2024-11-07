@@ -1,6 +1,8 @@
 package com.oscarneto.restapi.application.service.impl;
 
+import com.mongodb.DuplicateKeyException;
 import com.oscarneto.restapi.application.service.VacationService;
+import com.oscarneto.restapi.domain.exception.DuplicateUniqueKeyException;
 import com.oscarneto.restapi.domain.exception.EntityNotFoundException;
 import com.oscarneto.restapi.domain.entity.Vacation;
 import com.oscarneto.restapi.domain.repository.VacationRepository;
@@ -27,6 +29,14 @@ public class VacationServiceImpl implements VacationService {
 
     @Override
     public Vacation create(Vacation vacation) {
+        checkIfVacationNameAlreadyExists(vacation);
+
         return repository.save(vacation);
+    }
+
+    private void checkIfVacationNameAlreadyExists(Vacation vacation) {
+        repository.findByName(vacation.getName()).ifPresent((vacationWithSameName) -> {
+            throw new DuplicateUniqueKeyException(Vacation.class, "name", vacationWithSameName.getName());
+        });
     }
 }

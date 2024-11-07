@@ -1,4 +1,4 @@
-package com.oscarneto.restapi.presentation.dto;
+package com.oscarneto.restapi.presentation.dto.request;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

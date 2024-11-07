@@ -3,7 +3,7 @@ package com.oscarneto.restapi.presentation.controller;
 import com.oscarneto.restapi.application.service.VacationService;
 import com.oscarneto.restapi.common.utils.Constants;
 import com.oscarneto.restapi.domain.entity.Vacation;
-import com.oscarneto.restapi.presentation.dto.VacationCreateRequestDTO;
+import com.oscarneto.restapi.presentation.dto.request.VacationCreateRequestDTO;
 import com.oscarneto.restapi.presentation.mapper.VacationMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

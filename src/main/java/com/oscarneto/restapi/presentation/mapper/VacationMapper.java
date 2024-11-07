@@ -1,7 +1,7 @@
 package com.oscarneto.restapi.presentation.mapper;
 
 import com.oscarneto.restapi.domain.entity.Vacation;
-import com.oscarneto.restapi.presentation.dto.VacationCreateRequestDTO;
+import com.oscarneto.restapi.presentation.dto.request.VacationCreateRequestDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 

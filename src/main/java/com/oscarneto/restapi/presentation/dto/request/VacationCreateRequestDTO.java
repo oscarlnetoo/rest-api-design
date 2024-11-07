@@ -1,4 +1,4 @@
-package com.oscarneto.restapi.presentation.dto;
+package com.oscarneto.restapi.presentation.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.*;
