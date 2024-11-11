@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(Constants.API_VERSION_V1 + "/vacations")
-public class VacationController {
+public class VacationControllerV1 {
 
     private final VacationService service;
     private final VacationMapper mapper;
