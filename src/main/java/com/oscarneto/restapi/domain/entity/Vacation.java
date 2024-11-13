@@ -1,5 +1,6 @@
 package com.oscarneto.restapi.domain.entity;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,9 +11,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 import java.util.List;
 
-@NoArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
+@EqualsAndHashCode(exclude = {"destinations", "includes"})
 @Document("vacations")
 public class Vacation {
 
