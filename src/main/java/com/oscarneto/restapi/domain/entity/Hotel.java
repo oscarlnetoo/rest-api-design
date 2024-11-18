@@ -1,5 +1,6 @@
 package com.oscarneto.restapi.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,7 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(exclude = {"location", "metadata"})
+@JsonFilter("HotelFilter")
 @Document("hotels")
 public class Hotel {
 
