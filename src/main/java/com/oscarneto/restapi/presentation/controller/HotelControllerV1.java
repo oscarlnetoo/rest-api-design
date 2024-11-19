@@ -7,7 +7,6 @@ import com.oscarneto.restapi.application.service.HotelService;
 import com.oscarneto.restapi.common.utils.Constants;
 import com.oscarneto.restapi.domain.entity.Hotel;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,19 +21,22 @@ import java.util.Set;
 public class HotelControllerV1 {
 
     private final HotelService service;
-    private final Jackson2ObjectMapperBuilder objectMapperBuilder;
+    private final ObjectMapper objectMapper;
 
     @GetMapping
-    public List<String> getAll(@RequestParam(value = "fields", required = false) Set<String> fields) {
+    public List<Hotel> getAll(@RequestParam(value = "fields", required = false) Set<String> fields) {
         List<Hotel> hotels = service.findAllWithFields(fields);
 
         if (fields != null && !fields.isEmpty()) {
-            ObjectMapper customMapper = objectMapperBuilder.build();
-
+            // Configure the filter to include only the specified fields
             SimpleFilterProvider filterProvider = new SimpleFilterProvider()
                     .addFilter("HotelFilter", SimpleBeanPropertyFilter.filterOutAllExcept(fields));
 
-            customMapper.setFilterProvider(filterProvider);
+            // Set the filter provider for the global ObjectMapper
+            objectMapper.setFilterProvider(filterProvider);
+        } else {
+            // Reset filters to include all fields
+            objectMapper.setFilterProvider(new SimpleFilterProvider().addFilter("HotelFilter", SimpleBeanPropertyFilter.serializeAll()));
         }
 
         return hotels;
