@@ -7,12 +7,12 @@ import com.oscarneto.restapi.application.service.HotelService;
 import com.oscarneto.restapi.common.utils.Constants;
 import com.oscarneto.restapi.domain.entity.Hotel;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -24,8 +24,10 @@ public class HotelControllerV1 {
     private final ObjectMapper objectMapper;
 
     @GetMapping
-    public List<Hotel> getAll(@RequestParam(value = "fields", required = false) Set<String> fields) {
-        List<Hotel> hotels = service.findAllWithFields(fields);
+    public Page<Hotel> getAll(@RequestParam(value = "fields", required = false) Set<String> fields,
+                              @RequestParam(value = "page", defaultValue = "0") int page,
+                              @RequestParam(value = "size", defaultValue = "5") int size) {
+        Page<Hotel> hotels = service.findAllWithFields(fields, page, size);
 
         if (fields != null && !fields.isEmpty()) {
             // Configure the filter to include only the specified fields
