@@ -1,20 +1,19 @@
-package com.oscarneto.restapi.domain.entity;
+package com.oscarneto.restapi.presentation.dto.response;
 
-import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.fasterxml.jackson.annotation.JsonFilter;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Date;
 
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(exclude = {"location", "metadata"})
-@Document("hotels")
-public class Hotel {
-
-    @Id
+@Getter
+@Setter
+@JsonFilter("HotelFilter")
+public class HotelRetrieveResponseDTO {
     private String id;
 
     private String uuid;
@@ -36,12 +35,12 @@ public class Hotel {
     private boolean hotelInDestination;
     private int hotelRating;
 
-    private Location location;
+    private LocationRetrieveResponseDTO location;
 
     private String locationDescription;
     private int lowRate;
 
-    private Metadata metadata;
+    private MetadataRetrieveResponseDTO metadata;
 
     private int postalCode;
     private int propertyCategory;
@@ -53,6 +52,4 @@ public class Hotel {
     private String thumbNailUrl;
     private double tripAdvisorRating;
     private String tripAdvisorRatingUrl;
-
-    private int version; // Represents the "__v" field
 }

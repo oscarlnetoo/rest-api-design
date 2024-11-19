@@ -47,10 +47,11 @@ public class HotelServiceImpl implements HotelService {
             fields.forEach(query.fields()::include);
         }
 
-        Pageable pageable = PageRequest.of(page, size);
+        long totalElements = mongoTemplate.count(query, Hotel.class);
 
+        Pageable pageable = PageRequest.of(page, size);
         query.with(pageable);
 
-        return new PageImpl<>(mongoTemplate.find(query, Hotel.class), pageable, mongoTemplate.count(query, Hotel.class));
+        return new PageImpl<>(mongoTemplate.find(query, Hotel.class), pageable, totalElements);
     }
 }
